@@ -263,7 +263,7 @@ function selectDate(sel) {
     cluster_data.forEach(function(d) {
     
         key = d['course'] + ' (' + d['term'] + ')'
-            if((key == selected_key) && (d['med_dist'] <= 30)) {
+            if(key == selected_key) {
                 
                 dataset.push(d);
             }
@@ -276,7 +276,7 @@ function selectDate(sel) {
     cluster_data.forEach(function(d) {
     
         key = d['course'] + ' (' + d['term'] + ')'
-            if((key == selected_key) && (d['med_dist'] <= 30)&& (d['date'] == val)) {
+            if((key == selected_key) && (d['date'] == val)) {
                 
                 dataset.push(d);
             }
