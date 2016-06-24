@@ -122,24 +122,11 @@ var map = new google.maps.Map(d3.select("#map").node(), {
   mapTypeId: google.maps.MapTypeId.ROADMAP 
 });
 
-//var student_locs;
-var student_data;
-d3.csv("csv_student.csv", function(error, data) {
-  if (error) throw error;
- 
-    student_data = data;
-});
-/*
-d3.csv("csv_student_locs.csv", function(error, data) {
-  if (error) throw error;
- 
-    student_locs = data;
-});
-*/
+
 var cluster_data;
 var locations;
 // Load the station data. When the data comes back, create an overlay.
-d3.csv("csv_cluster.csv", function(error, data) {
+d3.csv("dummy_cluser.csv", function(error, data) {
   if (error) throw error;
  
     cluster_data = data;
@@ -155,7 +142,7 @@ d3.csv("csv_cluster.csv", function(error, data) {
 var student_entries;
 
 
-d3.csv("csv_locations.csv", function(error, data) {
+d3.csv("dummy_locs.csv", function(error, data) {
   if (error) throw error;
  
     locations = data;   
