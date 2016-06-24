@@ -1,7 +1,13 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-<meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
-<style>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Class-loc-d3 by valentin012</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <style>
 
 #map {
   width: 1200px;
@@ -13,8 +19,6 @@
 }
 
 #control {
-  width: 200px;
-  height: 600px;
   overflow: hidden;
   padding: 20px;
   margin: 5px;
@@ -93,10 +97,47 @@ div.tooltip {
 }
 
 </style>
-<div id="map"></div>
 <script src="//maps.google.com/maps/api/js?sensor=true"></script>
-<script src="javascripts/d3.min.js"></script>
-<script>
+<script src="d3.js"></script>
+
+
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>D3 Visualization tool (Class-loc-d3)</h1>
+        <p></p>
+
+        <p class="view"><a href="https://github.com/valentin012/class-loc-d3">View the Project on GitHub <small>valentin012/class-loc-d3</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/valentin012/class-loc-d3/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/valentin012/class-loc-d3/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/valentin012/class-loc-d3">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h3>
+<div id="control">
+<label> <input type="checkbox" name="radius" value="radius" id="radius" onclick="updateRadius();"> 200m radius </label>
+</div>
+<div id="map"></div>
+
+
+
+
+
+      </section>
+     
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+    <script>
 
 
 var usercolor = d3.scale.category10().domain(d3.range(1000));
@@ -121,7 +162,6 @@ var map = new google.maps.Map(d3.select("#map").node(), {
   center: new google.maps.LatLng(55.784875, 12.521238),
   mapTypeId: google.maps.MapTypeId.ROADMAP 
 });
-
 
 var cluster_data;
 var locations;
@@ -571,76 +611,8 @@ function clearlayer() {
 student_overlay.setMap(null);
 };
 
-/*
-function showStudentLocations(id,user) {    
-    student_locs_overlay.setMap(null);
-    
-    dataset = new Array();
-    student_locs.forEach(function(d) {
-    
-            if((d['id'] == id) && (d['user'] == user)) {
-                
-                dataset.push(d);
-            }
-       });
-       
-  
-    student_locs_overlay.onRemove = function() {
-        d3.selectAll('svg').filter(".student_loc").remove();
-    };
-
-  // Add the container when the overlay is added to the map.
-  student_locs_overlay.onAdd = function() {
-    var temp_layer = d3.select(this.getPanes().overlayLayer).append("div")
-        .attr("class", "stations");
-    //var layer = d3.select(".stations");
-    
-    // Draw each marker as a separate SVG element.
-    // We could use a single SVG, but what size would it have?
-    student_locs_overlay.draw = function() {
-      var projection = this.getProjection(),
-          padding = 6;
-
-      var marker = temp_layer.selectAll("svg").filter('.student_loc')
-          .data(d3.entries(dataset))
-          .each(transform) // update existing markers
-        .enter().append("svg")
-          .each(transform)
-          .attr("class", "student_loc");
-         
-
-      // Add a circle.
-      marker.append("circle")
-          .attr("r", 5)
-          .attr("cx", padding)
-          .attr("cy", padding);
-
-
-      function transform(d) {
-        d = new google.maps.LatLng(parseFloat(d.value['lat']), parseFloat(d.value['lon']));
-        d = projection.fromLatLngToDivPixel(d);
-        return d3.select(this)
-            .style("left", (d.x - padding) + "px")
-            .style("top", (d.y - padding) + "px");
-      }
-    };
-  };
-
-  // Bind our overlay to the map…
-  student_locs_overlay.setMap(map);
-       
-
-};*/
-
 
 </script>
-
-
-<div id="control">
-<label> <input type="checkbox" name="radius" value="radius" id="radius" onclick="updateRadius();"> 200m radius </label>
-</div>
-
-
-
-
-
+    
+  </body>
+</html>
